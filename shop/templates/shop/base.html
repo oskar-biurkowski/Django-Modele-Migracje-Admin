@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sklep 4TP{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'shop/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'shop:index' %}">Start</a> |
+        <a href="{% url 'shop:product_list' %}">Produkty</a> |
+        <a href="{% url 'shop:product_add' %}">Dodaj produkt</a> |
+        <a href="/admin/">Admin</a>
+    </nav>
+    <main style="margin-top: 1.5rem;">
+        {% block content %}{% endblock %}
+    </main>
+    <footer style="margin-top: 3rem; font-size: 0.9rem; color: #666;">
+        4TP &copy; {% now "Y" %}
+    </footer>
+</body>
+</html>

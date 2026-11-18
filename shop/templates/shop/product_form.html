@@ -1,0 +1,11 @@
+{% extends "shop/base.html" %}
+{% block title %}{{ title }} – Sklep 4TP{% endblock %}
+{% block content %}
+<h1>{{ title }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zapisz</button>
+</form>
+<p style="margin-top: 1rem;"><a href="{% url 'shop:product_list' %}">Anuluj</a></p>
+{% endblock %}

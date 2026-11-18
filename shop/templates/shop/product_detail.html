@@ -1,0 +1,16 @@
+{% extends "shop/base.html" %}
+{% block title %}{{ product.name }} – Sklep 4TP{% endblock %}
+{% block content %}
+<h1>{{ product.name }}</h1>
+<p><strong>Cena netto:</strong> {{ product.price }} zł</p>
+<p><strong>Cena brutto (VAT 23%):</strong> {{ product.gross_price }} zł</p>
+<p><strong>Kategoria:</strong> {{ product.category }}</p>
+<p><strong>Dostępność:</strong> {{ product.is_available|yesno:"tak,nie" }}</p>
+{% if product.description %}
+<p><strong>Opis:</strong> {{ product.description }}</p>
+{% endif %}
+<p style="margin-top: 1.5rem;">
+    <a href="{% url 'shop:product_edit' product.pk %}">Edytuj ten produkt</a> | 
+    <a href="{% url 'shop:product_list' %}">&larr; Wróć do listy</a>
+</p>
+{% endblock %}
